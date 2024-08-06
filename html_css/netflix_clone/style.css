@@ -90,12 +90,12 @@ header > .avatar > img {
 .netflix-originals > .posters > img {
   width: 200px;
   height: 300px;
-  margin: 15px;
+  margin: auto;
 }
 .trending-now > .posters > img {
   width: 250px;
   height: 150px;
-  margin: 8px;
+  margin: auto;
 }
 .posters {
   display: flex;
