@@ -75,4 +75,34 @@ header > .avatar > img {
 
 .container {
   width: 100%;
+  background-color: black;
+}
+
+.netflix-originals,
+.trending-now {
+  padding: 5px;
+}
+.netflix-originals > h2,
+.trending-now > h2 {
+  padding: 10px;
+  color: white;
+}
+.netflix-originals > .posters > img {
+  width: 200px;
+  height: 300px;
+  margin: 15px;
+}
+.trending-now > .posters > img {
+  width: 250px;
+  height: 150px;
+  margin: 8px;
+}
+.posters {
+  display: flex;
+}
+.posters > img {
+  transition: transform 0.5s;
+}
+.posters > img:hover {
+  transform: scale(1.1);
 }
