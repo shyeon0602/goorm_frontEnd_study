@@ -1,20 +1,78 @@
 * {
-  background-color: black;
   margin: 0;
   padding: 0;
 }
 
+header {
+  position: fixed;
+  width: 100%;
+  height: 100px;
+  z-index: 2;
+}
 header > .logo > img {
   width: 200px;
   height: 100px;
   float: left;
+  margin-top: 5px;
   margin-left: 10px;
 }
-
 header > .avatar > img {
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
   float: right;
-  margin-top: 5px;
+  margin: 10px;
   margin-right: 10px;
+  cursor: pointer;
+}
+
+.banner {
+  width: 100%;
+  height: 600px;
+  position: relative;
+  overflow: hidden;
+}
+.banner__img {
+  width: inherit;
+  height: inherit;
+}
+.banner__img > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* 이미지 비율 유지 */
+  display: block;
+}
+.banner__text {
+  position: absolute;
+  top: 50%;
+  left: 15%;
+  transform: translate(-50%, -50%);
+  color: white;
+  z-index: 1;
+}
+.banner__text--title {
+  font-size: 60px;
+  font-weight: 800;
+}
+.banner__button--play,
+.banner__button--myList {
+  border: none;
+  background-color: rgba(0, 0, 0, 0.7);
+  height: 40px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  margin: 15px;
+  padding: 10px;
+  border-radius: 5px;
+}
+.banner__button--play {
+  width: 80px;
+}
+.banner__text--contents {
+  padding: 10px;
+  font-weight: 600;
+}
+
+.container {
+  width: 100%;
 }

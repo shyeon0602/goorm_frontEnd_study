@@ -1,19 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>netflix clone coding</title>
-    <link rel="stylesheet" href="./style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <!-- header -->
     <header>
-        <div class="logo">
-            <img src="./main-img/netflix-logo.png" alt="">
-        </div>
-        <div class="avatar">
-            <img src="./main-img/netflix-avatar.png" alt="">
-        </div>
+      <div class="logo">
+        <img src="./main-img/netflix-logo.png" alt="" />
+      </div>
+      <div class="avatar">
+        <img src="./main-img/netflix-avatar.png" alt="" />
+      </div>
     </header>
-</body>
+    <!-- main -->
+    <main>
+      <!-- banner -->
+      <div class="banner">
+        <div class="banner__img">
+          <img src="./main-img/banner.jpg" alt="" />
+        </div>
+        <div class="banner__text">
+          <p class="banner__text--title">종이의 집</p>
+          <button class="banner__button--play">재생</button>
+          <button class="banner__button--myList">내가 찜한 리스트</button>
+          <p class="banner__text--contents">
+            역사상 최대 규모의 강도 사건을 수행하기 위해
+            <br />
+            교수라는 의문의 남자가 강도 8인단을 구출하는데...
+          </p>
+        </div>
+      </div>
+      <!-- movie list -->
+      <div class="container">
+        <div class="netflix-originals">movie list</div>
+        <div class="trending-now">movie list</div>
+      </div>
+    </main>
+  </body>
 </html>
