@@ -8,6 +8,6 @@ val = Math.E;
 val = Math.PI;
 val = Math.round(2.4); // 반올림
 val = Math.ceil(2.4); // 무조건 올림
-val = Math.floor(2.9); // 무조건 내림
+val = Math.floor(2.8); // 무조건 내림
 
 console.log(var1);
