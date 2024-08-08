@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>event bubbling</title>
+    <title>event capturing</title>
     <style>
       body * {
         margin: 10px;
@@ -12,22 +12,27 @@
     </style>
   </head>
   <body>
-    <form onclick="alert('form')">
+    <form>
       Form
-      <div onclick="alert('div')">
+      <div>
         div
-        <p onclick="alert('p')">p</p>
+        <p>p</p>
       </div>
     </form>
 
     <script>
-      const form = document.querySelector("form");
-      const div = document.querySelector("div");
-      const p = document.querySelector("p");
-
-      form.addEventListener("click", (e) => {
-        e.target.style.backgroundColor = "yellow";
-      });
+      for (let element of document.querySelectorAll("*")) {
+        element.addEventListener(
+          "click",
+          (e) => {
+            alert(`캡처링: ${element.tagName}`);
+          },
+          true
+        );
+        element.addEventListener("click", (e) => {
+          alert(`버블링: ${element.tagName}`);
+        });
+      }
     </script>
   </body>
 </html>
