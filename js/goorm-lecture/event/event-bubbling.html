@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>event bubbling</title>
+    <style>
+      body * {
+        margin: 10px;
+        border: 1px solid red;
+      }
+    </style>
+  </head>
+  <body>
+    <form onclick="alert('form')">
+      Form
+      <div onclick="alert('div')">
+        div
+        <p onclick="alert('p')">p</p>
+      </div>
+    </form>
+
+    <script>
+      const form = document.querySelector("form");
+      const div = document.querySelector("div");
+      const p = document.querySelector("p");
+
+      form.addEventListener("click", (e) => {
+        e.target.style.backgroundColor = "yellow";
+
+        setTimeout(() => {
+          alert("target = " + e.target.tagName + ", this = " + this.tagName);
+          e.target.style.backgroundColor = "";
+        }, 0);
+      });
+    </script>
+  </body>
+</html>
