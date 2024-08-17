@@ -1,4 +1,5 @@
 const spreadSheetContainer = document.querySelector("#spreadsheet-container");
+const exportBtn = document.querySelector("#export-btn");
 const ROWS = 10;
 const COLS = 10;
 const spreadsheet = [];
@@ -30,6 +31,28 @@ class Cell {
     this.active = active;
   }
 }
+
+exportBtn.onclick = function (e) {
+  // string 형태로 생성
+  let csv = "";
+  for (let i = 0; i < spreadsheet.length; i++) {
+    if (i == 0) continue; // header가 공란이 되는 것을 방지
+    csv +=
+      spreadsheet[i]
+        .filter((item) => !item.isHeader)
+        .map((item) => item.data)
+        .join(",") + "\r\n";
+  }
+
+  // 엑셀 파일로 추출
+  const csvObj = new Blob([csv]);
+  const csvUrl = URL.createObjectURL(csvObj);
+
+  const a = document.createElement("a");
+  a.href = csvUrl;
+  a.download = "spreadsheet file name.csv";
+  a.click();
+};
 
 // 람다함수를 사용하면 호이스팅이 안됨
 initSpreadsheet();
@@ -89,33 +112,22 @@ function createCellElement(cell) {
 
   // event handler 함수가 전달되기 위해서 익명함수 사용
   cellElement.addEventListener("click", () => handleCellClick(cell));
+  cellElement.onchange = (e) => {
+    handleOnChange(e.target.value, cell);
+  };
 
   return cellElement;
 }
 
+// 입력한 값을 cell의 data로 삽입
+function handleOnChange(data, cell) {
+  cell.data = data;
+}
+
 // cell row/column 위치 표시
-// function handleCellClick(cell) {
-//   const columnHeader = spreadsheet[0][cell.column];
-//   const rowHeader = spreadsheet[cell.row][0];
-//   const columnHeaderElement = getElementFromRowCol(
-//     columnHeader.row,
-//     columnHeader.column
-//   );
-//   const rowHeaderElement = getElementFromRowCol(
-//     rowHeader.row,
-//     rowHeader.column
-//   );
-
-//   console.log("Column Header:", columnHeader); // columnHeader 확인
-//   console.log("Row Header:", rowHeader); // rowHeader 확인
-
-//   columnHeaderElement.classList.add("active");
-//   rowHeaderElement.classList.add("active");
-
-//   console.log("clicked cell", columnHeaderElement, rowHeaderElement);
-// }
-
 function handleCellClick(cell) {
+  clearHeaderActiveStates();
+
   // 알파벳으로 되어있는 값을 숫자로 변환
   const columnIndex = cell.column.charCodeAt(0) - 65 + 1;
   const columnHeader = spreadsheet[0][columnIndex];
@@ -143,6 +155,16 @@ function handleCellClick(cell) {
   rowHeaderElement.classList.add("active");
 
   console.log("clicked cell", columnHeaderElement, rowHeaderElement);
+
+  document.querySelector("#cell-status").innerHTML = cell.column + cell.row;
+}
+
+function clearHeaderActiveStates() {
+  const headers = document.querySelectorAll(".header");
+
+  headers.forEach((header) => {
+    header.classList.remove("active");
+  });
 }
 
 function getElementFromRowCol(row, col) {
