@@ -23,7 +23,9 @@ function createTodo() {
   const { todoItemDiv, inputElement, editButton, removeButton } =
     createTodoElement(todoItem);
 
-  todoListElement.prepend(todoItemDiv); // 리스트 안에 아이템 요소 추가
+  // 리스트 안에 아이템 요소 추가 -> pre는 이미 생성된 아이템 요소 앞에 새로운 요소 생성
+  todoListElement.prepend(todoItemDiv);
+  inputElement.removeAttribute("disabled");
 }
 
 // 할일 요소 생성
