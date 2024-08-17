@@ -26,6 +26,8 @@ function createTodo() {
   todoListElement.prepend(todoItemDiv);
   inputElement.removeAttribute("disabled");
   inputElement.focus();
+
+  saveToLocalStorage(); // 로컬스토리지에 데이터 저장
 }
 
 // 할일 요소 생성
@@ -91,26 +93,68 @@ function createTodoEvent(
 
   checkboxElement.addEventListener("change", () => {
     todoItem.complete = checkboxElement.checked;
+    console.log("checkbox checked");
 
     if (todoItem.complete) {
       todoItemDiv.classList.add("complete");
+      editButton.disabled = true; // 완료된 할일은 수정 불가하도록 함
+      console.log("disabled edit button");
     } else {
       todoItemDiv.classList.remove("complete");
+      editButton.disabled = false;
+      console.log("enabled edit button");
     }
+
+    saveToLocalStorage(); // checked된 변경사항 로컬스토리지에 저장
   });
 
   inputElement.addEventListener("blur", () => {
     inputElement.setAttribute("disabled", "");
+
+    saveToLocalStorage(); // 수정된 사항 로컬스토리지 저장
   });
 
   editButton.addEventListener("click", () => {
     inputElement.removeAttribute("disabled");
     inputElement.focus();
+
+    console.log("edit text");
   });
 
   removeButton.addEventListener("click", () => {
     todoList = todoList.filter((item) => item.id != todoItem.id);
 
     todoItemDiv.remove();
+    console.log("removed todo item");
+
+    saveToLocalStorage(); // 삭제된 데이터 로컬스토리지 저장
   });
 }
+
+// localStorage에 데이터 저장
+function saveToLocalStorage() {
+  const data = JSON.stringify(todoList);
+  window.localStorage.setItem("todo-list", data);
+}
+
+// localStorage에 저장된 데이터를 불러오기
+function loadFromLocalStorage() {
+  const data = localStorage.getItem("todo-list");
+
+  if (data) {
+    todoList = JSON.parse(data); // json string을 object 객체로 변환
+  }
+}
+
+function displayTodoList() {
+  loadFromLocalStorage();
+
+  for (let i = 0; i < todoList.length; i++) {
+    const todoItem = todoList[i];
+    const { todoItemDiv } = createTodoElement(todoItem); // 리스트에 있으면 요소 생성
+
+    todoListElement.append(todoItemDiv); // .list div에 아이템 div 삽입
+  }
+}
+
+displayTodoList();
