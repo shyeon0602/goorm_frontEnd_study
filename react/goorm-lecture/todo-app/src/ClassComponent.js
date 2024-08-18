@@ -7,7 +7,9 @@ export default class ClassComponent extends Component {
       <div>
         ClassComponent
         <div className="container">
-          <div className="todoBlock"></div>
+          <div className="todoBlock">
+            <div className="title"></div>
+          </div>
         </div>
       </div>
     );
