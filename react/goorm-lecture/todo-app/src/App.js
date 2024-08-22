@@ -35,22 +35,22 @@ export default function App() {
   //   setValue(e.target.value);
   // };
 
-  // const handleSubmit = (e) => {
-  //   // form 안에 input을 전송할 때 페이지 리로드 방지
-  //   e.preventDefault();
+  const handleSubmit = (e) => {
+    // form 안에 input을 전송할 때 페이지 리로드 방지
+    e.preventDefault();
 
-  //   // 새로운 할일 데이터
-  //   let newTodo = {
-  //     id: Date.now(),
-  //     text: value,
-  //     completed: false,
-  //   };
+    // 새로운 할일 데이터
+    let newTodo = {
+      id: Date.now(),
+      text: value,
+      completed: false,
+    };
 
-  //   // 원래 존재하던 할일에 새로운 할일 추가
-  //   // setter에서 이전 state를 가지고 오기 위해서 인수에 함수를 이용해서 사용할 수 있음
-  //   setTodoData((prev) => [...prev, newTodo]);
-  //   setValue("");
-  // };
+    // 원래 존재하던 할일에 새로운 할일 추가
+    // setter에서 이전 state를 가지고 오기 위해서 인수에 함수를 이용해서 사용할 수 있음
+    setTodoData((prev) => [...prev, newTodo]);
+    setValue("");
+  };
 
   // const handleCompleteChange = (id) => {
   //   let newTodoData = todoData.map((data) => {
@@ -105,7 +105,7 @@ export default function App() {
             />
           </form> */}
 
-          <Form value={value} setTodoData={setTodoData} setValue={setValue} />
+          <Form value={value} setValue={setValue} handleSubmit={handleSubmit} />
         </div>
       </div>
     </div>
