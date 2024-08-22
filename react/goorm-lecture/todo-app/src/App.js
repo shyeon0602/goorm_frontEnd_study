@@ -1,33 +1,34 @@
 import React, { useState } from "react";
 import "./App.css";
+import Lists from "./components/Lists";
 
 export default function App() {
   // 첫번째 인수는 변수 이름, 두번째 인수는 state를 정하는 함수
   const [todoData, setTodoData] = useState([]);
   const [value, setValue] = useState("");
 
-  const btnStyle = {
-    color: "#fff",
-    border: "none",
-    padding: "5px 9px",
-    borderRadius: "50%",
-    cursor: "pointer",
-    float: "right",
-  };
-  const getStyle = (completed) => {
-    return {
-      padding: "10px",
-      borderBottom: "1px #ccc dotted",
-      textDecoration: completed ? "line-through" : "none",
-    };
-  };
+  // const btnStyle = {
+  //   color: "#fff",
+  //   border: "none",
+  //   padding: "5px 9px",
+  //   borderRadius: "50%",
+  //   cursor: "pointer",
+  //   float: "right",
+  // };
+  // const getStyle = (completed) => {
+  //   return {
+  //     padding: "10px",
+  //     borderBottom: "1px #ccc dotted",
+  //     textDecoration: completed ? "line-through" : "none",
+  //   };
+  // };
 
   // 할일 목록 삭제
-  const handleClick = (id) => {
-    let newTodoData = todoData.filter((data) => data.id !== id);
-    // setState()를 통해서 todoData를 newTodoData로 상태 바꿔주기
-    setTodoData(newTodoData);
-  };
+  // const handleClick = (id) => {
+  //   let newTodoData = todoData.filter((data) => data.id !== id);
+  //   // setState()를 통해서 todoData를 newTodoData로 상태 바꿔주기
+  //   setTodoData(newTodoData);
+  // };
 
   const handleChange = (e) => {
     setValue(e.target.value);
@@ -50,15 +51,15 @@ export default function App() {
     setValue("");
   };
 
-  const handleCompleteChange = (id) => {
-    let newTodoData = todoData.map((data) => {
-      if (data.id === id) {
-        data.completed = !data.completed;
-      }
-      return data;
-    });
-    setTodoData(newTodoData);
-  };
+  // const handleCompleteChange = (id) => {
+  //   let newTodoData = todoData.map((data) => {
+  //     if (data.id === id) {
+  //       data.completed = !data.completed;
+  //     }
+  //     return data;
+  //   });
+  //   setTodoData(newTodoData);
+  // };
 
   return (
     <div>
@@ -70,7 +71,7 @@ export default function App() {
           </div>
 
           {/* 할일 목록 추가 */}
-          {todoData.map((data) => (
+          {/* {todoData.map((data) => (
             <div style={getStyle(data.completed)} key={data.id}>
               <input
                 type="checkbox"
@@ -82,7 +83,9 @@ export default function App() {
                 x
               </button>
             </div>
-          ))}
+          ))} */}
+
+          <Lists todoData={todoData} setTodoData={setTodoData} />
 
           <form action="" style={{ display: "flex" }} onSubmit={handleSubmit}>
             <input
