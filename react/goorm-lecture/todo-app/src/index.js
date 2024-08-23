@@ -5,10 +5,11 @@ import App from "./App";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
-    <App />
-    {/* <ClassComponent /> */}
-  </React.StrictMode>
+  // drag and drop 사용을 위해서 strict 모드 제거
+  // <React.StrictMode>
+  <App />
+  // {/* <ClassComponent /> */}
+  // </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function
