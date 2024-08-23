@@ -7,17 +7,17 @@ export default function Form({ value, setValue, handleSubmit }) {
 
   return (
     <div>
-      Form
-      <form action="" style={{ display: "flex" }} onSubmit={handleSubmit}>
+      {/* Form */}
+      <form action="" className="flex p-2" onSubmit={handleSubmit}>
         <input
           type="text"
           name="value"
-          style={{ flex: "10", padding: "5px" }}
+          className="w-full px-3 py-2 text-gray-500 border rounded shadow"
           placeholder="해야 할 일을 입력하세요"
           value={value}
           onChange={handleChange}
         />
-        <input type="submit" value="입력" className="btn" style={{ flex: 1 }} />
+        <input type="submit" value="입력" className="btn" />
       </form>
     </div>
   );

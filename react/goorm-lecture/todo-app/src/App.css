@@ -1,16 +1,18 @@
-body {
-  background-color: aliceblue;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-.container {
-  margin: auto;
-  max-width: 600px;
+.btn {
+  /* className="border-2 border-blue-400 rounded
+  hover:bg-blue-200 hover:text-white cursor-pointer" */
+  border: 2px solid lightblue;
+  border-radius: 5px;
+  margin-left: 1rem;
+  padding: 1rem;
 }
-
-.todoBlock {
-  padding: 30px;
-  margin-top: 50px;
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: -9px 17px 13px rgba(0, 0, 0, 16%);
+.btn:hover {
+  border: none;
+  background-color: lightblue;
+  color: white;
+  cursor: pointer;
 }
