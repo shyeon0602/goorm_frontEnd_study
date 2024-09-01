@@ -56,4 +56,5 @@ const Lists = React.memo(({ todoData, setTodoData }) => {
   );
 });
 
-export default Lists;
+// 그냥 export Lists를 하면 에러 발생 -> 함수를 추출할 때도 React.memo로 감싸줘야함
+export default React.memo(Lists);
