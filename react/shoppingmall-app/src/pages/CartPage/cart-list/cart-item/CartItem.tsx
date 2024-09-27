@@ -1,10 +1,10 @@
 import React, { FC } from 'react'
 import { Link } from 'react-router-dom';
-import { deleteFromCart, incrementProduct, decrementProduct } from '../../../../store/cart/cart.slice';
-import styles from './CartItem.module.scss';
+import { deleteFromCart, incrementProduct, decrementProduct } from '@/store/cart/cart.slice';
+import styles from '@/styles/cart/cart-list/cart-item/cart-item.module.scss';
 import { AiOutlineDelete } from 'react-icons/ai';
-import { useAppDispatch } from '../../../../hooks/redux';
-import { IProduct } from '../../../../store/products/products.type';
+import { useAppDispatch } from '@/hooks/redux';
+import { IProduct } from '@/store/products/products.type';
 
 type CartItemProps = {
     item: IProduct;

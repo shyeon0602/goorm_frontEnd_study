@@ -1,10 +1,10 @@
 import React, { FC } from 'react'
 import { Link } from 'react-router-dom'
 import styles from './NavCartItem.module.scss'
-import { useAppDispatch } from '../../../../../../hooks/redux';
-import { deleteFromCart } from '../../../../../../store/cart/cart.slice';
+import { useAppDispatch } from '@/hooks/redux';
+import { deleteFromCart } from '@/store/cart/cart.slice';
 import { AiOutlineDelete } from 'react-icons/ai';
-import { IProduct } from '../../../../../../store/products/products.type';
+import { IProduct } from '@/store/products/products.type';
 
 type NavCartItemProps = {
     item: IProduct;

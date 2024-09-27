@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './CardSkeleton.module.scss';
+import styles from '@/styles/home/card-skeleton/card-skeleton.module.scss';
 import "react-loading-skeleton/dist/skeleton.css";
 import Skeleton from 'react-loading-skeleton';
 

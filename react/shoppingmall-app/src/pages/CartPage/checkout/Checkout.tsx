@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom';
-import { useAppSelector, useAppDispatch } from '../../../hooks/redux';
-import { useAuth } from '../../../hooks/useAuth';
-import { getTotalPrice, postOrder } from '../../../store/cart/cart.slice';
-import styles from './Checkout.module.scss';
+import { useAppSelector, useAppDispatch } from '@/hooks/redux';
+import { useAuth } from '@/hooks/useAuth';
+import { getTotalPrice, postOrder } from '@/store/cart/cart.slice';
+import styles from '@/styles/cart/checkout/checkout.module.scss';
 
 const Checkout = () => {
 

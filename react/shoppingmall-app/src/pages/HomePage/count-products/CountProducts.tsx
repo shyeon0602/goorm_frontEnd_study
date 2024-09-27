@@ -1,6 +1,6 @@
 import React from 'react'
-import { useAppSelector } from '../../../hooks/redux'
-import styles from './CountProducts.module.scss';
+import { useAppSelector } from '@/hooks/redux'
+import styles from '@/styles/home/count-products/counts-products.module.scss';
 
 const CountProducts = () => {
     const { products, isLoading } = useAppSelector(state => state.products);

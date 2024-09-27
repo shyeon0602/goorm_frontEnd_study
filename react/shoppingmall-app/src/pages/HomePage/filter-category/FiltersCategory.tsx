@@ -1,7 +1,7 @@
 import React from 'react'
-import { CategoriesName } from '../../../store/categories/categories.type';
+import { CategoriesName } from '@/store/categories/categories.type';
 import CategoryTab from './category-tab/CategoryTab';
-import styles from './FiltersCategory.module.scss';
+import styles from '@/styles/home/filter-category/filters-category.module.scss';
 
 const FiltersCategory = () => {
     return (

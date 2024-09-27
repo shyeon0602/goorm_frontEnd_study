@@ -3,12 +3,12 @@ import { Link } from 'react-router-dom'
 import { FiLogIn, FiShoppingCart, FiUser } from 'react-icons/fi';
 import { GoSignOut } from 'react-icons/go';
 import styles from './Nav.module.scss';
-import { useAuth } from '../../../hooks/useAuth';
+import { useAuth } from '@/hooks/useAuth';
 import { getAuth, signOut } from 'firebase/auth';
-import app from '../../../firebase';
-import { useAppDispatch, useAppSelector } from '../../../hooks/redux';
-import { removeUser } from '../../../store/user/user.slice';
-import { removeUserId } from '../../../store/cart/cart.slice';
+import app from '@/plugins/firebase';
+import { useAppDispatch, useAppSelector } from '@/hooks/redux';
+import { removeUser } from '@/store/user/user.slice';
+import { removeUserId } from '@/store/cart/cart.slice';
 import NavCartBlock from './nav-cart-block/NavCartBlock';
 
 const Nav = () => {

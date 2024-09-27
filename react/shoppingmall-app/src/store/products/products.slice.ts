@@ -36,7 +36,6 @@ export const productsSlice = createSlice({
     name: 'products',
     initialState,
     reducers: {},
-    // reducer를 추가하면 프로미스의 진행 상태에 따라서 리듀서를 실행할 수 있습니다.
     extraReducers: (builder) => {
         builder
             .addCase(fetchProducts.pending, (state) => {

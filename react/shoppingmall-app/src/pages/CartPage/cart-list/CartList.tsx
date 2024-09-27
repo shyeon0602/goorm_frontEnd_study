@@ -1,7 +1,7 @@
 import React from 'react'
-import { useAppSelector } from '../../../hooks/redux';
+import { useAppSelector } from '@/hooks/redux';
 import CartItem from './cart-item/CartItem'
-import styles from './CartList.module.scss';
+import styles from '@/styles/cart/cart-list/cart-list.module.scss';
 
 const CartList = () => {
     const { products } = useAppSelector((state) => state.cart)

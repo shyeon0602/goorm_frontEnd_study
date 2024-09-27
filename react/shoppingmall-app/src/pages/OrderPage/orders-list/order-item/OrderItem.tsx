@@ -1,7 +1,7 @@
 import React, { FC } from 'react'
 import { Link } from 'react-router-dom';
-import { IProduct } from '../../../../store/products/products.type';
-import styles from './OrderItem.module.scss';
+import { IProduct } from '@/store/products/products.type';
+import styles from '@/styles/order/orders-list/order-item/order-item.module.scss';
 
 type OrderItemProps = {
     order: IProduct

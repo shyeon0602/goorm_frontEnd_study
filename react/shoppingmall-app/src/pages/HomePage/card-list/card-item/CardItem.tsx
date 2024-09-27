@@ -1,9 +1,9 @@
 import React, { FC } from 'react'
 import { Link } from 'react-router-dom';
-import { useAppDispatch, useAppSelector } from '../../../../hooks/redux';
-import { addToCart } from '../../../../store/cart/cart.slice';
-import { IProduct } from '../../../../store/products/products.type';
-import styles from './CardItem.module.scss';
+import { useAppDispatch, useAppSelector } from '@/hooks/redux';
+import { addToCart } from '@/store/cart/cart.slice';
+import { IProduct } from '@/store/products/products.type';
+import styles from '@/styles/home/card-list/card-item/card-item.module.scss';
 
 type CardItemProps = {
   item: IProduct

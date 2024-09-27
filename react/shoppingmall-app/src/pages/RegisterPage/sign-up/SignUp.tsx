@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import Form from '../../../components/form/Form'
+import Form from '@/components/form/Form'
 import { createUserWithEmailAndPassword, getAuth } from 'firebase/auth';
-import app from '../../../firebase';
+import app from '@/plugins/firebase';
 import { useDispatch } from 'react-redux';
-import { setUser } from '../../../store/user/user.slice';
-import { setUserId } from '../../../store/cart/cart.slice';
+import { setUser } from '@/store/user/user.slice';
+import { setUserId } from '@/store/cart/cart.slice';
 
 const SignUp = () => {
   const navigate = useNavigate();
@@ -17,7 +17,6 @@ const SignUp = () => {
   const handleSignupAndLogin = (email: string, password: string) => {
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        // 리덕스 스토어에 담는 로직
         dispatch(setUser({
           email: userCredential.user.email,
           token: userCredential.user.refreshToken,

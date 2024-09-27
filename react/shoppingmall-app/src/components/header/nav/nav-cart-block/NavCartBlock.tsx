@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
-import { getTotalPrice } from '../../../../store/cart/cart.slice';
-import { useAppSelector, useAppDispatch } from '../../../../hooks/redux';
+import { getTotalPrice } from '@/store/cart/cart.slice';
+import { useAppSelector, useAppDispatch } from '@/hooks/redux';
 import styles from './NavCartBlock.module.scss';
 import NavCartList from './nav-cart-list/NavCartList';
 import { Link } from 'react-router-dom';

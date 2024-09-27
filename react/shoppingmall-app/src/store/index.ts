@@ -5,7 +5,6 @@ import productsReducer from './products/products.slice';
 import productReducer from './products/product.slice';
 import cartReducer from './cart/cart.slice';
 import orderReducer from './order/order.slice';
-import { useSelector } from "react-redux";
 
 export const store = configureStore({
     reducer: {

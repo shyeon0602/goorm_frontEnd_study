@@ -1,8 +1,8 @@
 import { FC } from 'react'
-import { useAppDispatch, useAppSelector } from '../../../../hooks/redux';
-import { setActiveCategory } from '../../../../store/categories/categories.slice';
-import { CategoriesName } from '../../../../store/categories/categories.type';
-import styles from './CategoryTab.module.scss';
+import { useAppDispatch, useAppSelector } from '@/hooks/redux';
+import { setActiveCategory } from '@/store/categories/categories.slice';
+import { CategoriesName } from '@/store/categories/categories.type';
+import styles from '@/styles/home/filter-category/category-tab/category-tab.module.scss';
 
 type CategoryTabProps = {
     text: string;
